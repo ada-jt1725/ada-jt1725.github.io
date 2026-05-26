@@ -935,24 +935,29 @@
         </section>
 
         <div class="section-stack" id="resume">
-            <section class="panel nes-container is-rounded section">
+            <!-- <section class="panel nes-container is-rounded section">
                 <div class="section-head">
-                    <h2 class="pixel" style="font-size: 0.9rem; margin: 0">About</h2>
-                    <span>What I want this page to say</span>
+                    <h2 class="pixel" style="font-size: 0.9rem; margin: 0">Reach out</h2>
+                    <span>Send an email or find me on socials</span>
                 </div>
                 <p class="about-copy">
-                    I like work that ships cleanly: model evaluation, inference support,
-                    data pipelines, anomaly detection, and the kind of systems people
-                    actually use.
+                    Interested in chatting, collaborating, or hiring? Send me a short email and I'll get back to you —
+                    I usually reply within a few days.
                 </p>
-                <div class="hero-meta" style="margin-top: 16px">
-                    <span class="nes-badge"><span class="is-dark">Email</span></span>
-                    <span class="nes-badge is-primary"><span class="is-dark">jin.tang25@imperial.ac.uk</span></span>
+
+                <div style="margin-top: 16px; display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+                    <a class="nes-btn is-primary" href="mailto:jin.tang25@imperial.ac.uk">Email Jin</a>
+                    <a class="nes-btn" href="https://github.com/ada-jt1725" target="_blank" rel="noreferrer">GitHub</a>
+                    <a class="nes-btn is-success" href="https://www.linkedin.com/in/jinhe-tang/" target="_blank"
+                        rel="noreferrer">LinkedIn</a>
                 </div>
-            </section>
+
+                <p style="margin-top:10px; color: var(--muted);">Prefer another way? Mention your timezone/availability
+                    in the email and I'll propose times.</p>
+            </section> -->
 
             <section class="resume-grid">
-                <article class="panel nes-container is-rounded section">
+                <!-- article class="panel nes-container is-rounded section">
                     <div class="section-head">
                         <h2 class="pixel" style="font-size: 0.85rem; margin: 0">
                             Education + Experience
@@ -1009,7 +1014,56 @@
                             </div>
                         </div>
                     </div>
-                </article>
+                </article> -->
+                <div class="experience-item">
+                    <h3 class="nes-text is-success">
+                        Engineering representations that make models work
+                        <img src="src/static/hammer.png" style="height: 70px" alt="Bird" />
+                    </h3>
+                    <!-- <h4>Finding structure in noisy systems with LSTM</h4> -->
+
+                    <p>
+                        In a time series anomaly detection project on real network traffic data, I worked on building an
+                        LSTM-based model to identify abnormal patterns in IDC port activity.
+                        <br><br>
+                        The data was messy, non-stationary, and full of irregular spikes — the kind of signals that
+                        don’t
+                        behave nicely in textbook examples.
+                        <br>
+                    <div style="
+                      border: 3px solid var(--line);
+                      box-shadow: 4px 4px 0 var(--line);
+                      background: linear-gradient(145deg, #fff, #f4fbff);
+                      min-height: 180px;
+                      display: grid;
+                      place-items: center;
+                      font-family: &quot;Press Start 2P&quot;, monospace;
+                      font-size: 0.7rem;
+                      text-align: center;
+                      padding: 10px;
+                    ">
+                        <img src="src/static/network-flow.png" alt="Project Image"
+                            style="max-width: 100%; height: auto;">
+                    </div>
+                    <br>
+                    What stood out was not just model performance, but how much of the work was actually about
+                    reshaping the data: constructing meaningful temporal windows, extending feature dimensions,
+                    and making the signal “learnable” in the first place.
+                    <br><br>
+                    Once the features were properly engineered, the model was finally able to make sense of the
+                    temporal structure in the data. This directly improved reconstruction quality and led to a
+                    high-recall anomaly detection system — which was critical given how sparse true anomaly labels
+                    were in real-world traffic.
+                    </p>
+                    <br>
+                    <div class="detail-row">
+                        <div style="margin: auto">
+                            <span class="nes-badge is-error"><span class="is-dark">Time series</span></span>
+                            <span class="nes-badge is-primary"><span class="is-dark">Anomaly detection</span></span>
+                            <span class="nes-badge is-warning"><span class="is-dark">Feature engineering</span></span>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- <article class="panel nes-container is-rounded section">
             <div class="section-head">
@@ -1053,7 +1107,7 @@
                         <h2 class="pixel" style="font-size: 0.85rem; margin: 0">
                             Things I noticed while building systems
                         </h2>
-                        <span>Patterns that don’t fit in a resume</span>
+                        <span>where data science reveals real science</span>
                     </div>
 
                     <div class="project-grid">
@@ -1066,11 +1120,16 @@
 
                             <div style="
                     display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 14px;
-                    align-items: center;
+                    grid-template-columns: 1fr;
+                    gap: 4px;
+                    /* align-items: center; */
+                    /* text-align: center; */
                   ">
-                                <!-- Image placeholder -->
+
+                                <p style="margin: 0; color: var(--muted); line-height: 1.75;">
+                                    In a multi-source climate and migration project, we studied
+                                    barn swallow migration patterns using environmental signals
+                                    and time series modeling.
                                 <div style="
                       border: 3px solid var(--line);
                       box-shadow: 4px 4px 0 var(--line);
@@ -1083,18 +1142,12 @@
                       text-align: center;
                       padding: 10px;
                     ">
-                                    Barn Swallow<br />
-                                    (image placeholder)
+                                    <img src="src/static/sa-uk.png" style="max-width: 100%; max-height: 100%"
+                                        alt="Climate and migration data" onerror="this.style.display = 'none'" />
                                 </div>
-
-                                <p style="margin: 0; color: var(--muted); line-height: 1.75">
-                                    In a multi-source climate and migration project, we studied
-                                    barn swallow migration patterns using environmental signals
-                                    and time series modeling.
-                                    <br /><br />
+                                <p>
                                     One observation stood out: migration timing was more
-                                    strongly aligned with the
-                                    <b>future temperature of their destination</b> — and even
+                                    strongly aligned with the <b>future temperature of their destination</b> — and even
                                     the future climate of their origin — rather than the local
                                     conditions at their current location. <br /><br />
                                     In other words, their behavior seemed more connected to
@@ -1116,7 +1169,7 @@
                             </div>
                         </div>
 
-                        <!-- Supporting insight cards -->
+                        <!-- Supporting insight cards
                         <div class="project-card">
                             <h3>Time series feel like living systems</h3>
                             <p>
@@ -1142,7 +1195,7 @@
                                 → deployment, especially when everything is noisy, imperfect,
                                 and real.
                             </p>
-                        </div>
+                        </div> -->
                     </div>
                 </article>
             </section>
@@ -1159,13 +1212,8 @@
                         starts
                         making sense.</p>
                     <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=ada-jt1725&theme=dracula&utcOffset=0"
-                        alt="GitHub commit productive time" style="
-                        width: min(100%, 480px); 
-                        display: block; 
-                        margin: 8px auto 0; 
-                        border: 3px solid var(--line); 
-                        box-shadow: 4px 4px 0 var(--line);
-                      " />
+                        alt="GitHub commit productive time"
+                        style="width:100%; display:block; margin:8px 0 0; border:3px solid var(--line); box-shadow:4px 4px 0 var(--line);" />
                 </section>
 
                 <section class="panel nes-container is-rounded spotify-card" aria-label="Spotify recently played">
@@ -1188,13 +1236,13 @@
                 </section>
             </div>
         </div>
-        <br><br>
+        <br>
         <section class="panel nes-container is-rounded journey-shell" id="journey">
             <div class="section-head">
                 <h2 class="pixel" style="font-size: 0.9rem; margin: 0">
                     My Journey
                 </h2>
-                <span>A cool map, not a spreadsheet</span>
+                <span>Follow my footprints</span>
             </div>
 
             <div class="journey-layout">
@@ -1235,31 +1283,33 @@
                         <span>Selected stop</span>
                         <h3 id="stop-title">London</h3>
                         <p id="stop-detail">
-                            Imperial College London, MSc Data Science and Machine Learning,
-                            expected Sept 2026.
+                            Imperial College London, MSc Environmental Data Science and Machine Learning,
+                            expected to graduate in Sept 2026. I love the vibrant and chaotic energy of London. This is
+                            where I discovered my love for cross disciplinary work and practical AI systems.
                         </p>
                     </div>
 
                     <p class="map-note">
-                        This section ties the resume into a simple route map so your page
-                        shows both the places you studied and the places you worked
-                        without forcing the reader through a wall of text.
+                        Everytime I move to a new place, I go from feeling like a tourist to slowly noticing the little
+                        details that make it home.
+                        <!-- These are the stops where I was born, studied, and worked — each with
+                        its own stories that shaped how I see the world and my place in it. -->
                     </p>
 
                     <div class="location-list" role="list">
                         <button class="is-active" type="button" data-stop-index="0">
                             <strong>London</strong>
-                            <span>Imperial College London | MSc Data Science and Machine
+                            <span>Current base | Imperial College London | MSc Data Science and Machine
                                 Learning</span>
                         </button>
                         <button type="button" data-stop-index="1">
                             <strong>Beijing</strong>
-                            <span>BUPT + ByteDance | AI degree and software research
+                            <span>Undergrad | BUPT + ByteDance | AI degree and software research
                                 internship</span>
                         </button>
                         <button type="button" data-stop-index="2">
                             <strong>Shanghai</strong>
-                            <span>Intel Corp. | AI framework internship and LLM deployment
+                            <span>Home | Intel Corp. | AI framework internship and LLM deployment
                                 support</span>
                         </button>
                     </div>
@@ -1291,12 +1341,12 @@
             {
                 title: "Beijing",
                 detail:
-                    "BUPT for Artificial Intelligence, plus ByteDance TRAE team software research in Beijing.",
+                    "BUPT for Artificial Intelligence, plus ByteDance TRAE team software research in Beijing. A place of fast-paced growth, very intense, a place I have a lot of love-hate relationship with.",
             },
             {
                 title: "Shanghai",
                 detail:
-                    "Intel Corp. AI Framework internship, with benchmarking and support for local LLM systems.",
+                    "My hometown. Intel Corp. AI Framework internship, with benchmarking and support for local LLM systems. I love my home that's why I wouldn't want to work there to avoid getting too comfortable :)",
             },
         ];
 
