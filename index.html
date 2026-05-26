@@ -1,0 +1,1134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Jinhe Tang's NES.css homepage with social links, resume highlights, and a travel map of places studied and worked."
+    />
+    <title>Jinhe Tang | Jin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/nes.css/css/nes.min.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6efdf;
+        --bg-2: #f0f8ff;
+        --bg-3: #fff6d9;
+        --ink: #171312;
+        --muted: rgba(23, 19, 18, 0.72);
+        --line: #171312;
+        --shadow: 8px 8px 0 #171312;
+        --accent: #e76f51;
+        --accent-2: #2a9d8f;
+        --accent-3: #f4a261;
+        --accent-4: #457b9d;
+        --panel: rgba(255, 252, 244, 0.92);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--ink);
+        font-family: "IBM Plex Sans", sans-serif;
+        background:
+          radial-gradient(circle at 15% 12%, rgba(69, 123, 157, 0.2), transparent 22%),
+          radial-gradient(circle at 88% 8%, rgba(231, 111, 81, 0.18), transparent 18%),
+          radial-gradient(circle at 80% 78%, rgba(42, 157, 143, 0.14), transparent 20%),
+          linear-gradient(180deg, var(--bg) 0%, #f4efe4 52%, #f5f7fb 100%);
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.14;
+        background-image:
+          linear-gradient(rgba(23, 19, 18, 0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(23, 19, 18, 0.08) 1px, transparent 1px);
+        background-size: 24px 24px;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 28px 0 42px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .ambient {
+        position: absolute;
+        border: 3px solid var(--line);
+        border-radius: 999px;
+        box-shadow: var(--shadow);
+        pointer-events: none;
+        opacity: 0.28;
+      }
+
+      .ambient.one {
+        top: 16px;
+        right: -40px;
+        width: 128px;
+        height: 128px;
+        background: rgba(231, 111, 81, 0.2);
+      }
+
+      .ambient.two {
+        left: -50px;
+        top: 460px;
+        width: 160px;
+        height: 160px;
+        background: rgba(69, 123, 157, 0.18);
+      }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 18px 20px;
+        margin-bottom: 22px;
+        background: rgba(255, 252, 244, 0.96);
+        box-shadow: var(--shadow);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .avatar {
+        width: 54px;
+        height: 54px;
+        display: grid;
+        place-items: center;
+        border: 3px solid var(--line);
+        background: linear-gradient(145deg, #fff, var(--bg-3));
+        box-shadow: 4px 4px 0 var(--line);
+        font-family: "Press Start 2P", monospace;
+        font-size: 0.72rem;
+        overflow: hidden;
+      }
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .avatar .avatar-fallback { display:block }
+
+      .brand-copy {
+        display: grid;
+        gap: 3px;
+      }
+
+      .brand-copy strong {
+        font-size: 1rem;
+        letter-spacing: 0.01em;
+      }
+
+      .brand-copy span {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .header-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.25fr 0.85fr;
+        gap: 18px;
+      }
+
+      .panel {
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-main {
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 12% 18%, rgba(69, 123, 157, 0.14), transparent 18%),
+          radial-gradient(circle at 76% 12%, rgba(231, 111, 81, 0.16), transparent 18%),
+          linear-gradient(145deg, #fffaf1 0%, #f4fbff 100%);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .eyebrow .nes-badge {
+        margin: 0;
+      }
+
+      .eyebrow .badge-note {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      h1,
+      h2,
+      h3,
+      .pixel {
+        font-family: "Press Start 2P", monospace;
+      }
+
+      h1 {
+        margin: 0 0 18px;
+        line-height: 1.35;
+        font-size: clamp(1.7rem, 4.8vw, 3.2rem);
+      }
+
+      .lede {
+        margin: 0;
+        max-width: 66ch;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.8;
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .hero-aside {
+        display: grid;
+        gap: 14px;
+      }
+
+      .portrait {
+        padding: 22px;
+      }
+
+      .portrait-ring {
+        display: grid;
+        place-items: center;
+        min-height: 210px;
+        border: 3px solid var(--line);
+        background:
+          radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), transparent 18%),
+          radial-gradient(circle at 70% 18%, rgba(69, 123, 157, 0.22), transparent 20%),
+          radial-gradient(circle at 28% 72%, rgba(231, 111, 81, 0.24), transparent 22%),
+          linear-gradient(145deg, #fffdf6, #eef8ff);
+        box-shadow: 6px 6px 0 var(--line);
+      }
+
+      .portrait-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .portrait-initials {
+        padding: 22px 26px;
+        border: 3px solid var(--line);
+        background: rgba(255, 255, 255, 0.85);
+        font-family: "Press Start 2P", monospace;
+        font-size: 1rem;
+        box-shadow: 4px 4px 0 var(--line);
+        position: relative;
+      }
+
+      .portrait-copy {
+        margin-top: 18px;
+      }
+
+      .portrait-copy p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .quick-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .quick-card {
+        padding: 14px;
+        border: 3px solid var(--line);
+        background: #fff;
+        box-shadow: 4px 4px 0 var(--line);
+      }
+
+      .quick-card .label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--accent-4);
+        font-size: 0.74rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .quick-card strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.95rem;
+      }
+
+      .quick-card span {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .section-stack {
+        display: grid;
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .resume-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .section {
+        padding: 24px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .section-head span {
+        color: var(--accent);
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .about-copy,
+      .section p,
+      .nes-list li,
+      .resume-table td,
+      .resume-table th,
+      .map-note,
+      .stop-item p,
+      .stop-summary p,
+      .footer-copy {
+        line-height: 1.75;
+      }
+
+      .nes-list {
+        margin-bottom: 0;
+      }
+
+      .stack-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .experience-item,
+      .project-card,
+      .publication-card,
+      .skills-card {
+        padding: 16px;
+        border: 3px solid var(--line);
+        background: #fff;
+        box-shadow: 4px 4px 0 var(--line);
+      }
+
+      .experience-item + .experience-item,
+      .project-card + .project-card {
+        margin-top: 0;
+      }
+
+      .experience-item h3,
+      .project-card h3,
+      .publication-card h3,
+      .skills-card h3 {
+        margin: 0 0 10px;
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+
+      .experience-item p,
+      .project-card p,
+      .publication-card p,
+      .skills-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .detail-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 12px 0 0;
+      }
+
+      .detail-row .nes-badge {
+        margin: 0;
+      }
+
+      .resume-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .resume-table td,
+      .resume-table th {
+        padding: 12px;
+        vertical-align: top;
+      }
+
+      .resume-table th {
+        width: 30%;
+        text-align: left;
+        color: var(--accent-4);
+      }
+
+      .spotify-card {
+        display: grid;
+        gap: 14px;
+        padding: 16px;
+        width: min(100%, 420px);
+        justify-self: end;
+      }
+
+      .spotify-card img {
+        width: min(100%, 320px);
+        justify-self: start;
+        display: block;
+        border: 3px solid var(--line);
+        box-shadow: 4px 4px 0 var(--line);
+      }
+
+      .spotify-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+        max-width: 42ch;
+      }
+
+      /* Layout: place resume snapshot and spotify card on the same row */
+      .resume-spotify-grid {
+        display: grid;
+        grid-template-columns: 1fr minmax(280px, 420px);
+        gap: 18px;
+        align-items: start;
+      }
+      @media (max-width: 960px) {
+        .resume-spotify-grid { grid-template-columns: 1fr; }
+      }
+
+      .project-grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .skills-grid .nes-badge {
+        margin: 0;
+      }
+
+      .journey-shell {
+        margin-top: 18px;
+        padding: 24px;
+      }
+
+      .journey-layout {
+        display: grid;
+        grid-template-columns: 1.25fr 0.9fr;
+        gap: 18px;
+      }
+
+      .map-stage,
+      .map-sidebar {
+        border: 4px solid var(--line);
+        background: #fffdf6;
+        box-shadow: 6px 6px 0 var(--line);
+      }
+
+      .map-stage {
+        position: relative;
+        min-height: 440px;
+        overflow: hidden;
+      }
+
+      .map-stage::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(23, 19, 18, 0.07) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(23, 19, 18, 0.07) 1px, transparent 1px);
+        background-size: 32px 32px;
+        opacity: 0.35;
+        pointer-events: none;
+      }
+
+      .map-stage::after {
+        content: "";
+        position: absolute;
+        inset: 14px;
+        border: 2px dashed rgba(23, 19, 18, 0.2);
+        pointer-events: none;
+      }
+
+      .map-visual {
+        position: absolute;
+        inset: 0;
+      }
+
+      .map-route {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .map-route path {
+        stroke-dasharray: 5 5;
+      }
+
+      .map-blob {
+        position: absolute;
+        border-radius: 999px;
+        border: 3px solid var(--line);
+        background: rgba(69, 123, 157, 0.18);
+        box-shadow: 4px 4px 0 var(--line);
+      }
+
+      .map-blob.one {
+        width: 88px;
+        height: 88px;
+        left: 10%;
+        top: 18%;
+      }
+
+      .map-blob.two {
+        width: 64px;
+        height: 64px;
+        left: 52%;
+        top: 44%;
+        background: rgba(231, 111, 81, 0.18);
+      }
+
+      .map-blob.three {
+        width: 82px;
+        height: 82px;
+        left: 78%;
+        top: 56%;
+        background: rgba(42, 157, 143, 0.2);
+      }
+
+      .map-pin,
+      .map-pin-label {
+        position: absolute;
+        transform: translate(-50%, -50%);
+      }
+
+      .map-pin {
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        border: 3px solid var(--line);
+        background: var(--accent-4);
+        box-shadow: 3px 3px 0 var(--line);
+      }
+
+      .map-pin.is-active {
+        width: 24px;
+        height: 24px;
+        background: var(--accent);
+      }
+
+      .map-pin-label {
+        padding: 7px 10px;
+        border: 3px solid var(--line);
+        background: #fff;
+        box-shadow: 4px 4px 0 var(--line);
+        font-size: 0.8rem;
+        white-space: nowrap;
+      }
+
+      .map-sidebar {
+        display: grid;
+        gap: 14px;
+        align-content: start;
+        padding: 18px;
+      }
+
+      .stop-summary,
+      .stop-item,
+      .location-list button {
+        border: 3px solid var(--line);
+        background: #fff;
+        box-shadow: 4px 4px 0 var(--line);
+      }
+
+      .stop-summary {
+        padding: 16px;
+      }
+
+      .stop-summary span,
+      .stop-item .eyebrow-text {
+        color: var(--accent-4);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .stop-summary h3 {
+        margin: 8px 0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .location-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .location-list button {
+        width: 100%;
+        text-align: left;
+        padding: 12px 14px;
+        font: inherit;
+        cursor: pointer;
+        transition: transform 160ms ease, background 160ms ease;
+      }
+
+      .location-list button.is-active,
+      .location-list button:hover,
+      .location-list button:focus-visible {
+        background: #fff3c4;
+        transform: translateY(-1px);
+        outline: none;
+      }
+
+      .location-list strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .location-list span {
+        color: var(--muted);
+        font-size: 0.84rem;
+        line-height: 1.45;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 20px 4px 0;
+        color: var(--muted);
+      }
+
+      .footer-copy {
+        max-width: 58ch;
+      }
+
+      .footer-copy strong {
+        color: var(--ink);
+      }
+
+      @media (max-width: 960px) {
+        .hero,
+        .resume-grid,
+        .journey-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .site-header,
+        .footer {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .header-links {
+          justify-content: flex-start;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          width: min(100%, calc(100% - 18px));
+          padding-top: 14px;
+        }
+
+        .site-header,
+        .hero-main,
+        .hero-aside .portrait,
+        .section,
+        .journey-shell {
+          padding: 18px;
+        }
+
+        .quick-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-actions,
+        .hero-meta {
+          gap: 8px;
+        }
+
+        .map-stage {
+          min-height: 380px;
+        }
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .panel,
+        .site-header,
+        .quick-card,
+        .experience-item,
+        .project-card,
+        .publication-card,
+        .skills-card,
+        .map-stage,
+        .map-sidebar {
+          animation: lift-in 720ms ease both;
+        }
+
+        .hero-aside {
+          animation-delay: 120ms;
+        }
+
+        .resume-grid .section:first-child {
+          animation-delay: 180ms;
+        }
+
+        .resume-grid .section:last-child {
+          animation-delay: 250ms;
+        }
+
+        .journey-shell {
+          animation-delay: 320ms;
+        }
+
+        @keyframes lift-in {
+          from {
+            opacity: 0;
+            transform: translateY(18px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="ambient one" aria-hidden="true"></div>
+      <div class="ambient two" aria-hidden="true"></div>
+
+      <header class="site-header nes-container is-rounded">
+        <div class="brand">
+            <div class="avatar" aria-hidden="true">
+              <img src="src/static/profile.jpeg" alt="Jinhe Tang" onerror="this.style.display='none'" />
+              <span class="avatar-fallback">JT</span>
+            </div>
+            <div class="brand-copy">
+            <strong>Jinhe Tang</strong>
+            <span>AI research, data pipelines, and evaluation systems</span>
+          </div>
+        </div>
+
+        <div class="header-links" aria-label="Social handles">
+          <a class="nes-btn is-primary" href="https://github.com/ada-jt1725" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="nes-btn is-success" href="https://www.linkedin.com/in/jinhe-tang/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="nes-btn is-error" href="https://open.spotify.com/user/314ar5chufrkkw3n34aapqntmduy" target="_blank" rel="noreferrer">Spotify</a>
+          <a class="nes-btn is-warning" href="file:///Users/jt1725/Downloads/data_science__tencent_.pdf" target="_blank" rel="noreferrer">Resume</a>
+        </div>
+      </header>
+
+      <section class="hero" aria-label="Introduction">
+        <article class="panel nes-container is-rounded hero-main">
+          <div class="eyebrow">
+            <span class="nes-badge is-dark">
+              <span class="is-dark">Profile</span>
+            </span>
+            <span class="badge-note">Available from mid June onward</span>
+          </div>
+
+          <h1>Hi, this is Jin! Welcome to my page.</h1>
+          <p class="lede">
+            Not everything fits into a CV!
+            <br><br>
+            This is the page that shows the real side of me 🕺 -- not just polished job titles piled up by resume bullet points 📝. 
+            <br><br>
+            I see myself as an AI research, who's fascinated by the gap between elegant AI algorithms and the messy reality of the real world. I enjoy talking to people of different technical background, working on topics at the intersection of fields, and unleashing the power of AI into these untouched domains where technology has yet to make a real/enough impact. 📈
+          </p>
+
+          <div class="hero-meta">
+            <span class="nes-badge"><span class="is-dark">Machine Learning</span></span>
+            <span class="nes-badge is-primary"><span class="is-primary">Data Science</span></span>
+            <span class="nes-badge is-success"><span class="is-success">LLMs</span></span>
+            <span class="nes-badge is-warning"><span class="is-warning">Pipelines</span></span>
+            <span class="nes-badge is-error"><span class="is-error">Evaluation</span></span>
+            <span class="nes-badge"><span class="is-dark">Always learning...</span></span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="nes-btn is-primary" href="#resume">Resume highlights</a>
+            <a class="nes-btn is-success" href="#journey">My Journey  🗺️</a>
+          </div>
+        </article>
+
+        <aside class="hero-aside">
+          <section class="panel nes-container is-rounded portrait">
+            <div class="portrait-ring">
+              <img src="src/static/profile.png" alt="Jinhe Tang" class="portrait-img" onerror="this.style.display='none'" />
+              <!-- <div class="portrait-initials">Me</div> -->
+            </div>
+            <div class="portrait-copy">
+              <h2 class="pixel" style="font-size: 0.9rem; margin: 0;">Jinhe (Jin) Tang</h2>
+              <p>
+                I always enjoy walking down my neighborhood streets on a sunny day, with some music playing. It's a simple pleasure that helps me clear my mind and find inspiration in the little things around me.
+              </p>
+            </div>
+          </section>
+
+          <section class="quick-grid" aria-label="Quick facts">
+            <div class="quick-card">
+              <span class="label">Education</span>
+              <strong>Imperial + BUPT</strong>
+              <span>MSc expected Sept 2026</span><br>
+              <span>BEng completed 2025</span>
+            </div>
+            <div class="quick-card">
+              <span class="label">Internships</span>
+              <strong>ByteDance + Intel</strong>
+              <span>LLM evaluation and inference frameworks</span>
+            </div>
+            <div class="quick-card">
+              <span class="label">Publication</span>
+              <strong>ASE 2025</strong>
+              <span>RepoMasterEval on real-world code completion</span>
+            </div>
+            <div class="quick-card">
+              <span class="label">Focus</span>
+              <strong>Practical ML</strong>
+              <span>Research, deployment, and evaluation</span>
+            </div>
+          </section>
+        </aside>
+      </section>
+
+      <div class="section-stack" id="resume">
+        <section class="panel nes-container is-rounded section">
+          <div class="section-head">
+            <h2 class="pixel" style="font-size: 0.9rem; margin: 0;">About</h2>
+            <span>What I want this page to say</span>
+          </div>
+          <p class="about-copy">
+            I like work that ships cleanly: model evaluation, inference support, data pipelines,
+            anomaly detection, and the kind of systems people actually use.
+          </p>
+          <div class="hero-meta" style="margin-top: 16px;">
+            <span class="nes-badge"><span class="is-dark">Email</span></span>
+            <span class="nes-badge is-primary"><span class="is-dark">jin.tang25@imperial.ac.uk</span></span>
+          </div>
+        </section>
+
+        <section class="resume-grid">
+          <article class="panel nes-container is-rounded section">
+            <div class="section-head">
+              <h2 class="pixel" style="font-size: 0.85rem; margin: 0;">Education + Experience</h2>
+              <span>The core resume signal</span>
+            </div>
+
+            <div class="stack-list">
+              <div class="experience-item">
+                <h3>Imperial College London</h3>
+                <p>MSc Data Science and Machine Learning, expected to graduate in Sept 2026, Distinction predicted.</p>
+                <div class="detail-row">
+                  <span class="nes-badge is-success"><span class="is-dark">London</span></span>
+                  <span class="nes-badge is-warning"><span class="is-dark">Sept 2025 - Sept 2026</span></span>
+                </div>
+              </div>
+
+              <div class="experience-item">
+                <h3>Beijing University of Posts and Telecommunications</h3>
+                <p>BEng Artificial Intelligence, GPA 89.4/100, top 5%.</p>
+                <div class="detail-row">
+                  <span class="nes-badge is-primary"><span class="is-dark">Beijing</span></span>
+                  <span class="nes-badge"><span class="is-dark">Sept 2021 - Jun 2025</span></span>
+                </div>
+              </div>
+
+              <div class="experience-item">
+                <h3>ByteDance Ltd. — Software Research Intern, TRAE Team</h3>
+                <p>
+                  Built and maintained an LLM-powered code evaluation framework, constructed a more
+                  practical evaluation set from real repositories, and automated environment setup,
+                  repository collection, and unit test generation.
+                </p>
+                <div class="detail-row">
+                  <span class="nes-badge is-error"><span class="is-dark">Beijing</span></span>
+                  <span class="nes-badge is-warning"><span class="is-dark">Jan - Jul 2024</span></span>
+                </div>
+              </div>
+
+              <div class="experience-item">
+                <h3>Intel Corp. — AI Framework Intern</h3>
+                <p>
+                  Maintained IPEX-LLM, benchmarked llama.cpp and Ollama, and supported users running
+                  local LLM systems on Intel hardware.
+                </p>
+                <div class="detail-row">
+                  <span class="nes-badge is-success"><span class="is-dark">Shanghai</span></span>
+                  <span class="nes-badge is-primary"><span class="is-dark">Aug - Dec 2024</span></span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel nes-container is-rounded section">
+            <div class="section-head">
+              <h2 class="pixel" style="font-size: 0.85rem; margin: 0;">Projects, paper, skills</h2>
+              <span>What I would show first</span>
+            </div>
+
+            <div class="project-grid">
+              <div class="project-card">
+                <h3>IDC Time Series Anomaly Detection</h3>
+                <p>
+                  Predicted traffic anomalies from network port time series data with an LSTM autoencoder,
+                  improved recall by over 30%, and deployed the model as a Flask REST API.
+                </p>
+              </div>
+
+              <div class="project-card">
+                <h3>Multi-Source Climate & Migration Data Pipeline</h3>
+                <p>
+                  Led a team project that fused climate features, bird migration timing, and LLM-based
+                  prediction with feature engineering and cross-attention between time-series patches and
+                  token embeddings.
+                </p>
+              </div>
+
+              <div class="publication-card">
+                <h3>Publication</h3>
+                <p>
+                  RepoMasterEval: Evaluating Code Completion via Real-World Repositories, ASE 2025.
+                </p>
+              </div>
+
+              <div class="skills-card">
+                <h3>Technical skills</h3>
+                <p>Python, PyTorch, scikit-learn, FastAPI, Flask, REST APIs, Docker, Linux, Git, EDA, feature engineering, experiment design, data preprocessing, model evaluation.</p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <div class="resume-spotify-grid">
+        <section class="panel nes-container is-rounded section">
+          <div class="section-head">
+            <h2 class="pixel" style="font-size: 0.9rem; margin: 0;">Resume snapshot</h2>
+            <span>A compact version of the PDF</span>
+          </div>
+
+          <table class="resume-table nes-table is-bordered is-centered">
+            <tbody>
+              <tr>
+                <th>Profile</th>
+                <td>Self-motivated fast learner focused on AI research, creator ecosystems, and practical machine learning systems.</td>
+              </tr>
+              <tr>
+                <th>Education</th>
+                <td>Imperial College London MSc Data Science and Machine Learning; BUPT BEng Artificial Intelligence, GPA 89.4/100.</td>
+              </tr>
+              <tr>
+                <th>Experience</th>
+                <td>ByteDance TRAE team software research internship; Intel AI framework internship.</td>
+              </tr>
+              <tr>
+                <th>Publication</th>
+                <td>RepoMasterEval at ASE 2025.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="panel nes-container is-rounded spotify-card" aria-label="Spotify recently played">
+          <div class="section-head" style="margin-bottom: 0;">
+            <h2 class="pixel" style="font-size: 0.82rem; margin: 0;">Spotify</h2>
+            <span>Recently played</span>
+          </div>
+          <p>
+            A compact now-playing snapshot linked to your Spotify profile.
+          </p>
+          <a href="https://open.spotify.com/user/314ar5chufrkkw3n34aapqntmduy" target="_blank" rel="noreferrer">
+            <img
+              src="https://spotify-recently-played-readme.vercel.app/api?user=314ar5chufrkkw3n34aapqntmduy&count=5"
+              alt="Spotify recently played"
+            />
+          </a>
+        </section>
+        </div>
+      </div>
+
+      <section class="panel nes-container is-rounded journey-shell" id="journey">
+        <div class="section-head">
+          <h2 class="pixel" style="font-size: 0.9rem; margin: 0;">My Journey (to the west haha)</h2>
+          <span>A cool map, not a spreadsheet</span>
+        </div>
+
+        <div class="journey-layout">
+          <div class="map-stage">
+            <div class="map-visual" aria-label="Travel map of studied and worked places">
+              <div class="map-blob one" aria-hidden="true"></div>
+              <div class="map-blob two" aria-hidden="true"></div>
+              <div class="map-blob three" aria-hidden="true"></div>
+
+              <svg class="map-route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 22 28 C 34 20, 42 28, 49 36 S 60 54, 70 56 S 81 58, 84 64" fill="none" stroke="#171312" stroke-width="1.2" />
+                <path d="M 20 30 C 34 23, 42 31, 49 39 S 59 56, 70 58 S 80 60, 84 66" fill="none" stroke="#457b9d" stroke-width="0.6" />
+              </svg>
+
+              <div class="map-pin-label" style="left: 22%; top: 28%;">London</div>
+              <div class="map-pin-label" style="left: 49%; top: 36%;">Beijing</div>
+              <div class="map-pin-label" style="left: 84%; top: 64%;">Shanghai</div>
+
+              <button class="map-pin is-active" type="button" data-stop-index="0" style="left: 22%; top: 35%;" aria-label="Select London"></button>
+              <button class="map-pin" type="button" data-stop-index="1" style="left: 49%; top: 47%;" aria-label="Select Beijing"></button>
+              <button class="map-pin" type="button" data-stop-index="2" style="left: 84%; top: 60%;" aria-label="Select Shanghai"></button>
+            </div>
+          </div>
+
+          <aside class="map-sidebar">
+            <div class="stop-summary">
+              <span>Selected stop</span>
+              <h3 id="stop-title">London</h3>
+              <p id="stop-detail">
+                Imperial College London, MSc Data Science and Machine Learning, expected Sept 2026.
+              </p>
+            </div>
+
+            <p class="map-note">
+              This section ties the resume into a simple route map so your page shows both the places
+              you studied and the places you worked without forcing the reader through a wall of text.
+            </p>
+
+            <div class="location-list" role="list">
+              <button class="is-active" type="button" data-stop-index="0">
+                <strong>London</strong>
+                <span>Imperial College London | MSc Data Science and Machine Learning</span>
+              </button>
+              <button type="button" data-stop-index="1">
+                <strong>Beijing</strong>
+                <span>BUPT + ByteDance | AI degree and software research internship</span>
+              </button>
+              <button type="button" data-stop-index="2">
+                <strong>Shanghai</strong>
+                <span>Intel Corp. | AI framework internship and LLM deployment support</span>
+              </button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-copy">
+          <strong>Jin</strong> on GitHub Pages, with the useful resume material surfaced directly on the page.
+        </div>
+        <div class="hero-actions" style="margin: 0;">
+          <a class="nes-btn" href="https://github.com/ada-jt1725" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="nes-btn" href="https://www.linkedin.com/in/jinhe-tang/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="nes-btn is-warning" href="#resume">Back to resume</a>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      const stops = [
+        {
+          title: 'London',
+          detail: 'Imperial College London, MSc Data Science and Machine Learning, expected Sept 2026.',
+        },
+        {
+          title: 'Beijing',
+          detail: 'BUPT for Artificial Intelligence, plus ByteDance TRAE team software research in Beijing.',
+        },
+        {
+          title: 'Shanghai',
+          detail: 'Intel Corp. AI Framework internship, with benchmarking and support for local LLM systems.',
+        },
+      ];
+
+      const stopTitle = document.getElementById('stop-title');
+      const stopDetail = document.getElementById('stop-detail');
+      const mapButtons = Array.from(document.querySelectorAll('[data-stop-index]'));
+
+      function setStop(index) {
+        const stop = stops[index];
+
+        stopTitle.textContent = stop.title;
+        stopDetail.textContent = stop.detail;
+
+        mapButtons.forEach((button) => {
+          button.classList.toggle('is-active', Number(button.dataset.stopIndex) === index);
+        });
+      }
+
+      mapButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          setStop(Number(button.dataset.stopIndex));
+        });
+      });
+    </script>
+  </body>
+</html>
